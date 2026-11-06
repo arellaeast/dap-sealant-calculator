@@ -1,0 +1,95 @@
+:root{
+  --dap-orange:#f96302;
+  --dap-orange-dark:#d95400;
+  --black:#0a0a0a;
+  --ink:#161616;
+  --gray:#5c5c5c;
+  --line:#e3e3e0;
+  --bg:#f6f6f4;
+  --card:#ffffff;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Barlow',Arial,sans-serif;color:var(--ink);background:var(--bg)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;margin:0}
+
+/* Header, dap.com style: black bar, slanted white logo plaque */
+.site-header{background:var(--black);color:#fff}
+.header-in{display:flex;align-items:center;gap:28px;padding-top:14px;padding-bottom:14px}
+.logo{background:#fff;color:#000;font-family:'Barlow Condensed',Arial,sans-serif;font-weight:700;font-size:34px;line-height:1;padding:6px 16px 8px 12px;transform:skewX(-8deg);border-radius:3px}
+.logo-r{font-size:12px;vertical-align:top}
+.main-nav{display:flex;gap:26px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:17px}
+.main-nav span{cursor:pointer}
+.header-cta{margin-left:auto;background:var(--dap-orange);color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:10px 18px;font-size:15px}
+.experience-bar{background:#fff;color:var(--ink);border-bottom:1px solid var(--line)}
+.exp-in{display:flex;align-items:center;gap:18px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.exp-label{font-family:'Barlow Condensed',Arial,sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;letter-spacing:.04em}
+.exp-toggle{display:flex}
+.exp-btn{border:0;cursor:pointer;font-family:'Barlow',Arial,sans-serif;font-weight:700;text-transform:uppercase;font-size:14px;letter-spacing:.04em;padding:10px 20px;background:#ececea;color:#333;transform:skewX(-10deg)}
+.exp-btn.active{background:var(--dap-orange);color:#fff}
+
+/* Hero */
+.hero{background:linear-gradient(100deg,#000 55%,#262626);color:#fff;padding:52px 0 46px}
+.hero-kicker{color:var(--dap-orange);font-weight:700;text-transform:uppercase;letter-spacing:.18em;margin:0 0 8px;font-size:15px}
+.hero h1{font-size:clamp(44px,7vw,76px);line-height:.98;font-weight:700}
+.hero-sub{max-width:640px;font-size:19px;line-height:1.45;color:#e8e8e8;margin:16px 0 0}
+
+/* Calculator card */
+.calc-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;margin:-8px auto 0;position:relative;top:24px;box-shadow:0 10px 34px rgba(0,0,0,.07)}
+.calc-head{display:flex;gap:14px;align-items:center;margin-bottom:22px}
+.calc-icon{background:var(--dap-orange);border-radius:9px;width:48px;height:48px;display:flex;align-items:center;justify-content:center}
+.calc-head h2{font-size:30px}
+.calc-head p{margin:2px 0 0;color:var(--gray);font-size:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 26px}
+.field label{display:block;font-weight:600;font-size:15.5px;margin-bottom:7px}
+.field input,.field select{width:100%;padding:13px 14px;font-size:16.5px;font-family:inherit;border:1.5px solid #cfcfc9;border-radius:8px;background:#fbfbfa;color:var(--ink)}
+.field input:focus,.field select:focus{outline:2px solid var(--dap-orange);border-color:var(--dap-orange)}
+.hint{margin:7px 0 0;color:var(--gray);font-size:13.5px;line-height:1.4}
+.chips{display:flex;gap:7px;margin-top:9px;flex-wrap:wrap}
+.chips button{border:1.5px solid #cfcfc9;background:#fff;border-radius:999px;padding:5px 13px;font-size:14px;font-family:inherit;cursor:pointer;font-weight:600}
+.chips button.chip-on{background:var(--black);color:#fff;border-color:var(--black)}
+.error{background:#fdeceb;color:#8c1d04;border:1px solid #f3b8a6;border-radius:8px;padding:11px 14px;font-weight:600}
+.actions{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.btn-calc{flex:1;min-width:220px;background:var(--dap-orange);color:#fff;border:0;border-radius:7px;font-size:19px;font-weight:700;font-family:inherit;padding:15px;cursor:pointer;text-transform:none}
+.btn-calc:hover{background:var(--dap-orange-dark)}
+.btn-reset{background:#fff;border:1.5px solid #cfcfc9;border-radius:7px;font-size:16.5px;font-weight:600;font-family:inherit;padding:15px 26px;cursor:pointer}
+.results{margin-top:28px;border-top:2px solid var(--black);padding-top:22px}
+.result-main{display:flex;align-items:baseline;gap:12px}
+.result-num{font-family:'Barlow Condensed',Arial,sans-serif;font-size:74px;font-weight:700;line-height:1;color:var(--dap-orange)}
+.result-label{font-size:21px;font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+.result-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.result-stats div{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:13px}
+.result-stats strong{display:block;font-size:19px}
+.result-stats span{color:var(--gray);font-size:13.5px;line-height:1.35;display:block;margin-top:3px}
+.warning{background:#fff6e8;border:1px solid #ecc27a;color:#6d4c00;border-radius:8px;padding:12px 14px;font-weight:600;line-height:1.45}
+.method{color:var(--gray);font-size:14px;line-height:1.55;margin-top:16px}
+
+/* Tips + measure */
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:52px 0 8px}
+.tips article{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:20px}
+.tips h3{font-size:21px;margin-bottom:7px}
+.tips p{margin:0;color:#3d3d3d;line-height:1.5;font-size:15.5px}
+.measure{padding:38px 0 20px}
+.measure h2{font-size:32px;margin-bottom:16px}
+.measure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.measure-grid h3{font-size:20px;color:var(--dap-orange);margin-bottom:6px}
+.measure-grid p{margin:0;line-height:1.55;color:#3d3d3d;font-size:15.5px}
+.table-title{margin-top:40px}
+.table-sub{color:var(--gray);margin:4px 0 14px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line)}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:16px}
+th{background:var(--black);color:#fff;text-transform:uppercase;font-size:14px;letter-spacing:.05em}
+
+footer{background:var(--black);color:#cfcfcf;margin-top:46px;padding:30px 0;font-size:14px;line-height:1.6}
+footer strong{color:#fff}
+.foot-line{color:var(--dap-orange);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+
+@media (max-width:760px){
+  .grid{grid-template-columns:1fr}
+  .result-stats{grid-template-columns:1fr 1fr}
+  .tips,.measure-grid{grid-template-columns:1fr}
+  .main-nav{display:none}
+  .header-cta{font-size:13px;padding:8px 12px}
+  .calc-card{padding:20px}
+}

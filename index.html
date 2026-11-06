@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAP Sealant Calculator - How Many Tubes Do You Need?</title>
+<meta name="description" content="Free sealant and caulk calculator in the DAP brand style. Enter your joint length, width and depth to get exact tube counts for 10.1 oz cartridges and 5.5 oz squeeze tubes, using DAP published coverage data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-in">
+    <div class="logo" aria-label="DAP style logo">DAP<span class="logo-r">®</span></div>
+    <nav class="main-nav" aria-label="Main">
+      <span>Products</span><span>Resources</span><span>About</span>
+    </nav>
+    <div class="header-cta">Where to Buy</div>
+  </div>
+  <div class="experience-bar">
+    <div class="wrap exp-in">
+      <span class="exp-label">Choose your experience:</span>
+      <div class="exp-toggle" role="group" aria-label="Experience">
+        <button type="button" id="expPro" class="exp-btn active">I'm a Pro User</button>
+        <button type="button" id="expDiy" class="exp-btn">I'm a DIY User</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-kicker">On the job since 1865</p>
+    <h1>How many tubes<br>do you need?</h1>
+    <p class="hero-sub">Professional-grade caulks, sealants, adhesives, &amp; repair products trusted by trades to perform. Measure the joint once, buy the right amount, skip the second trip.</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="calc-card" aria-labelledby="calcTitle">
+    <div class="calc-head">
+      <div class="calc-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none"><rect x="4" y="2.5" width="16" height="19" rx="2" fill="#fff"/><rect x="7" y="5.5" width="10" height="4" rx="1" fill="#f96302"/><g fill="#111"><circle cx="8.5" cy="13" r="1.3"/><circle cx="12" cy="13" r="1.3"/><circle cx="15.5" cy="13" r="1.3"/><circle cx="8.5" cy="16.8" r="1.3"/><circle cx="12" cy="16.8" r="1.3"/><circle cx="15.5" cy="16.8" r="1.3"/></g></svg>
+      </div>
+      <div>
+        <h2 id="calcTitle">Sealant Calculator</h2>
+        <p>Enter your joint dimensions below</p>
+      </div>
+    </div>
+
+    <form id="calcForm" novalidate>
+      <div class="grid">
+        <div class="field">
+          <label for="length">Project Length (feet)</label>
+          <input type="number" id="length" inputmode="decimal" min="0" step="any" placeholder="e.g. 40" value="40">
+          <p class="hint" id="lengthHint">Total linear feet of every joint you are sealing.</p>
+        </div>
+        <div class="field">
+          <label for="joints">Number of Identical Joints</label>
+          <input type="number" id="joints" inputmode="numeric" min="1" step="1" value="1">
+          <p class="hint">Five 20-ft windows is 5 joints, not one.</p>
+        </div>
+        <div class="field">
+          <label for="width">Joint Width (inches)</label>
+          <input type="number" id="width" inputmode="decimal" min="0" step="any" placeholder="e.g. 0.25" value="0.25">
+          <div class="chips" data-target="width">
+            <button type="button" data-value="0.125">1/8"</button>
+            <button type="button" data-value="0.1875">3/16"</button>
+            <button type="button" data-value="0.25" class="chip-on">1/4"</button>
+            <button type="button" data-value="0.375">3/8"</button>
+            <button type="button" data-value="0.5">1/2"</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="depth">Joint Depth (inches)</label>
+          <input type="number" id="depth" inputmode="decimal" min="0" step="any" placeholder="e.g. 0.125" value="0.125">
+          <div class="chips" data-target="depth">
+            <button type="button" data-value="0.125" class="chip-on">1/8"</button>
+            <button type="button" data-value="0.1875">3/16"</button>
+            <button type="button" data-value="0.25">1/4"</button>
+            <button type="button" data-value="0.375">3/8"</button>
+            <button type="button" data-value="0.5">1/2"</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="tube">Tube Size</label>
+          <select id="tube">
+            <option value="10.1" selected>10.1 oz cartridge (Alex Plus, Dynaflex 230)</option>
+            <option value="5.5">5.5 oz squeeze tube (Alex Plus, Kwik Seal Plus)</option>
+          </select>
+          <p class="hint" id="tubeHint">Pros run cartridges. A case is 12 cartridges.</p>
+        </div>
+        <div class="field">
+          <label for="waste">Waste Factor (%)</label>
+          <input type="number" id="waste" inputmode="decimal" min="0" max="50" step="1" value="10">
+          <p class="hint">10% (Recommended). Covers tooling, trimming and the last bit in the nozzle.</p>
+        </div>
+      </div>
+
+      <p class="error" id="error" role="alert" hidden></p>
+
+      <div class="actions">
+        <button type="submit" class="btn-calc">Calculate <span aria-hidden="true">→</span></button>
+        <button type="button" class="btn-reset" id="resetBtn">↺ Reset</button>
+      </div>
+    </form>
+
+    <div class="results" id="results" aria-live="polite" hidden>
+      <div class="result-main">
+        <span class="result-num" id="tubesNeeded">1</span>
+        <span class="result-label" id="tubesLabel">cartridge needed</span>
+      </div>
+      <div class="result-stats">
+        <div><strong id="totalOz">0 oz</strong><span>total sealant, waste included</span></div>
+        <div><strong id="perTube">0 ft</strong><span>linear feet per tube at your joint size</span></div>
+        <div><strong id="altSize">0</strong><span id="altLabel">in the other tube size</span></div>
+        <div id="caseRow"><strong id="caseCount">0 cases</strong><span>12 cartridges per case, pros</span></div>
+      </div>
+      <p class="warning" id="warning" hidden></p>
+      <p class="method">Math: joint volume (length × width × depth) converted to fluid ounces, plus your waste factor, divided by tube size and rounded up. Cross-check: a 3/16" round bead works out to about 55 linear feet per 10.1 oz cartridge, which matches DAP's published coverage for Alex Plus. Rectangular joints use a little more product than a round bead, so this estimate runs slightly conservative on purpose.</p>
+    </div>
+  </section>
+
+  <section class="tips">
+    <article>
+      <h3>Backer Rod</h3>
+      <p>Use backer rod for joints deeper than 1/2" to control depth and save material.</p>
+    </article>
+    <article>
+      <h3>Joint Design</h3>
+      <p>Ideal depth-to-width ratio is 1:2 for maximum movement capability. A 1/4" wide joint wants about 1/8" of depth.</p>
+    </article>
+    <article>
+      <h3>Temperature</h3>
+      <p>Apply between 40°F-100°F for optimal adhesion and cure performance.</p>
+    </article>
+  </section>
+
+  <section class="measure">
+    <h2>How to Measure Your Joint</h2>
+    <div class="measure-grid">
+      <div>
+        <h3>Length</h3>
+        <p>Measure the total linear feet of every joint you're sealing. Add each run together. Five 20-ft windows is 100 linear feet, not 20.</p>
+      </div>
+      <div>
+        <h3>Width</h3>
+        <p>Measure the gap across, at its widest point. If the gap changes size along the run, use the widest measurement so you do not come up short.</p>
+      </div>
+      <div>
+        <h3>Depth</h3>
+        <p>Measure how deep the sealant will sit, not how deep the hole is. With backer rod in place, depth is the distance from the rod to the surface.</p>
+      </div>
+    </div>
+
+    <h2 class="table-title">Quick Coverage Table</h2>
+    <p class="table-sub">Round bead, per 10.1 oz cartridge. Based on DAP published coverage data.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Bead size</th><th>Linear feet per 10.1 oz cartridge</th><th>Linear feet per 5.5 oz tube</th></tr></thead>
+        <tbody>
+          <tr><td>3/16"</td><td>55 ft</td><td>30 ft</td></tr>
+          <tr><td>1/4"</td><td>31 ft</td><td>17 ft</td></tr>
+          <tr><td>3/8"</td><td>14 ft</td><td>8 ft</td></tr>
+          <tr><td>1/2"</td><td>8 ft</td><td>4 ft</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Concept demo.</strong> This calculator is an independent prototype built by Jacob East as a Website Manager application demo. It is not an official DAP product and is not affiliated with or endorsed by DAP Products Inc. or RPM International. Coverage figures are estimates based on DAP published technical data. Always check the technical data sheet for your specific product before you buy.</p>
+    <p class="foot-line">DAP style concept · On the job since 1865 · Baltimore, MD</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
