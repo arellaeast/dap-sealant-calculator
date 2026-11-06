@@ -4,6 +4,11 @@ A caulk and sealant coverage calculator styled to fit the DAP brand: black heade
 
 **Live demo:** https://arellaeast.github.io/dap-sealant-calculator/
 
+Part of a three-piece demo suite by Jacob East:
+- Product Finder: https://arellaeast.github.io/dap-product-finder/
+- Ask a DAP Expert: https://arellaeast.github.io/dap-ask-an-expert/
+- Sealant Calculator: https://arellaeast.github.io/dap-sealant-calculator/
+
 ## What it does
 
 - Enter project length, number of identical joints, joint width, joint depth, tube size and a waste factor

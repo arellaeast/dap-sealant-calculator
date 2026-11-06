@@ -84,6 +84,8 @@ th{background:var(--black);color:#fff;text-transform:uppercase;font-size:14px;le
 footer{background:var(--black);color:#cfcfcf;margin-top:46px;padding:30px 0;font-size:14px;line-height:1.6}
 footer strong{color:#fff}
 .foot-line{color:var(--dap-orange);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.suite a{color:var(--dap-orange);font-weight:700;text-decoration:none}
+.suite a:hover{text-decoration:underline}
 
 @media (max-width:760px){
   .grid{grid-template-columns:1fr}
