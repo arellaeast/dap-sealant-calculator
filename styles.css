@@ -15,7 +15,7 @@ h1,h2,h3{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;text-tra
 
 /* Header, dap.com style: black bar, official logo centered on the bar and overhanging it, like dap.com */
 .site-header{background:var(--black);color:#fff;margin-top:16px;position:relative;z-index:10}
-@media(min-width:1024px){.site-header{margin-top:28px}}
+@media(min-width:1024px){.site-header{margin-top:46px}}
 .header-in{position:relative;display:flex;align-items:center;gap:28px;padding-top:20px;padding-bottom:20px;padding-left:152px}
 @media(min-width:1024px){.header-in{padding-top:50px;padding-bottom:50px;padding-left:224px}}
 .logo{position:absolute;left:20px;top:50%;transform:translateY(-50%);height:110px;width:auto;z-index:2}
